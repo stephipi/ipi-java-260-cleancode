@@ -44,7 +44,6 @@ public class BowlingGame {
     		
     		addSpareBonus(framePoint);
 
-        	System.out.print("\ntotal" + totalRollNb + " " + rollNb);
     		if (rollNb == 2)
     		{
     			updateScore(framePoint);
@@ -83,7 +82,6 @@ public class BowlingGame {
     	if (totalRollNb == 20)
     	{
     		bonusRoll = bonusPoint;
-        	System.out.print("last frame" + bonusRoll);
     	}
     }
 }
