@@ -17,6 +17,7 @@ public class BowlingGameTest {
     public void testUneSeuleQuille(){
         game.roll(1);
         rollMany(19, 0);
+        //assertEquals(20, game.totalRollNb());
         assertEquals(1, game.score());
     }
 
@@ -33,9 +34,9 @@ public class BowlingGameTest {
     public void testBonusDuStrike(){
         game.roll(10);
         game.roll(2);
-        game.roll(1);
+        game.roll(5);
         rollMany(16, 0);
-        assertEquals(16, game.score());
+        assertEquals(24, game.score());
     }
 
     @Test
@@ -47,7 +48,41 @@ public class BowlingGameTest {
         rollMany(16, 0);
         assertEquals(19, game.score());
     }
+    
+    @Test
+    public void testPasDeLancerBonus(){
+        rollMany(20, 0);
+        game.roll(5);
+        assertEquals(0, game.score());
+    }
 
+    @Test
+    public void testPasDeLancerBonusGestionStrike(){
+        game.roll(10);
+        rollMany(18, 0);
+        game.roll(5);
+        assertEquals(10, game.score());
+    }
+
+    @Test
+    public void testBonusDernierSpare(){
+        rollMany(18, 0);
+        game.roll(6);
+        game.roll(4);
+        game.roll(9);
+        assertEquals(19, game.score());
+    }
+
+    @Test
+    public void testBonusDernierStrike(){
+        rollMany(18, 0);
+        game.roll(10);
+        game.roll(2);
+        game.roll(5);
+        assertEquals(17, game.score());
+    }
+
+    
     private void rollMany(int numberRolls, int numberPins) {
         for (int i = 0; i < numberRolls; i++) {
             game.roll(numberPins);
