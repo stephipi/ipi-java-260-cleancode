@@ -17,7 +17,6 @@ public class BowlingGameTest {
     public void testUneSeuleQuille(){
         game.roll(1);
         rollMany(19, 0);
-        //assertEquals(20, game.totalRollNb());
         assertEquals(1, game.score());
     }
 
