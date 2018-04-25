@@ -36,7 +36,7 @@ public class BowlingGame {
     		
     		if (bonusPoint != 0)
     		{
-    			framePoint += numberPins;
+    			score += numberPins;
     			bonusPoint -=1;
     		}
     			
